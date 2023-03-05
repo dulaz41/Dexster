@@ -8,6 +8,8 @@ import { ApiPromise, WsProvider } from "@polkadot/api";
 import { ContractPromise } from "@polkadot/api-contract";
 import { web3FromSource } from "@polkadot/extension-dapp";
 import Identicon from "@polkadot/react-identicon";
+import { Link } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
 
 export default function App() {
   const [myContract, setMyContract] = useState(null);
@@ -44,8 +46,11 @@ export default function App() {
     <div className="pageBody">
       <div className="navBar">
         <div className="appName">
-          {" "}
-          DEXSTER <GiBodySwapping className="appnameIcon" />
+          <Link to="/">
+            <Box display={"flex"} alignItems={"center"}>
+              DEXSTER <GiBodySwapping className="appnameIcon" />
+            </Box>
+          </Link>
         </div>
         {myContract === null || activeAccount == null ? (
           <div className="connectBtn" onClick={() => connect()}>
